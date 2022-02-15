@@ -3,7 +3,7 @@ const registerButton = document.getElementById('register')
 
 const RegisterPage = () => {
   console.log('Button was clicked')
-  window.location.replace("localhost:5501/Fallprojekt/register.html");
+  window.location.replace("http://127.0.0.1:5500/Register-an-account.html");
 }
 
 registerButton.addEventListener('click', RegisterPage)
