@@ -3,7 +3,7 @@ const registerButton = document.getElementById('register')
 
 const RegisterPage = () => {
     console.log('Button was clicked')
-    window.location.replace("file:///C:/Users/babyo/Desktop/Fallproject-frontend-new/Frontend/Register-an-account.html");
+    window.location.replace("http://127.0.0.1:5500/Register-an-account.html");
     //den funkar på Leis datorn,men kan behöva ändras när vi mergar
 }
 
