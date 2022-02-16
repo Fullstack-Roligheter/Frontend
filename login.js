@@ -57,8 +57,9 @@ const SignIn = (e) => {
                 } else {
                     //eller redirect inloggad sida
                     console.log('Success')
+                    window.location.replace("http://127.0.0.1:5500/Spa.test/index.html");
                     return resp.json()
-                        .then(data => console.log(data))
+                    .then(data => console.log(data))
                 }
                 //lägga till en ny else if för att fånga andra fel typ 500??
             })
