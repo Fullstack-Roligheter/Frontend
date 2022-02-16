@@ -1,4 +1,4 @@
-export const render = (root) => {
+export const render = () => {
     let userId = 1;
     let budgetId = '';
     let tempList = [];
