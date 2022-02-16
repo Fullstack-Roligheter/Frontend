@@ -1,3 +1,4 @@
+export const render = (root) => {
 let userId = 1;
 let budgetId = '';
 let tempList = [];
@@ -93,16 +94,15 @@ const GetExpenses = (data) => {
             appendData(data);
         })
 
-    //document.getElementById('Budget-Title').remove
-    //document.getElementById('Budget-Item').remove
-
     const appendData = (data) => {
 
         let body = document.getElementById('app')
+        // document.getElementById('Budget-Title').remove
+        // document.getElementById('Budget-Item').remove
         for (let i = 0; i < data.length; i++) {
             let div = document.createElement("div")
             div.setAttribute('id', 'Budget-Title')
-
+            //div.innerHTML = '';
             div.innerHTML =
                 'Budget Name : ' + data[i].budgetName + '<br/><br/>' + 'Expenses :' + '<br/>';
 
@@ -111,6 +111,7 @@ const GetExpenses = (data) => {
             for (let j = 0; j < data[i].expenses.length; j++) {
                 let div2 = document.createElement("div");
                 div2.setAttribute('id', 'Budget-Item')
+                //div2.innerHTML = '';
                 div2.innerHTML =
                     'Category Name : ' + data[i].expenses[j].categoryName + '<br/>' +
                     'Amount : ' + data[i].expenses[j].amount + '<br/>' +
@@ -126,3 +127,4 @@ const GetExpenses = (data) => {
 
 GetBudgets(userId);
 GetExpenses();
+}
