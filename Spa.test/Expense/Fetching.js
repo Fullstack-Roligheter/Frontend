@@ -25,4 +25,5 @@ const Fetching = () => {
             body: JSON.stringify(expense),
         })
     })
+    alert("Expenses Added")
 }
