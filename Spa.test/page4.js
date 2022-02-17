@@ -3,7 +3,7 @@ export const render = () => {
     let budgetId = '';
     let tempList = [];
     let budgetName = '';
-    let newData = [];
+    //let newData = [];
 
     const GetBudgets = (loggedInUserId) => {
         fetch
@@ -21,7 +21,7 @@ export const render = () => {
     const PopulateList = (data) => {
         tempList = data
         ListAllBudgetInDropdown(data)
-        console.log(tempList)
+        //console.log(tempList)
     }
 
 
@@ -69,9 +69,10 @@ export const render = () => {
             }
         }
 
-        newData = JSON.stringify({ userId: userId, budgetId: budgetId })
+        //newData = JSON.stringify({ userId: userId, budgetId: budgetId })
         //ClearExpenses()
-        GetExpenses(newData)
+        //GetExpenses(newData)
+        GetExpenses()
     }
 
     // const ClearExpenses = () => {
@@ -79,17 +80,19 @@ export const render = () => {
     //     document.getElementById('Budget-Item').remove
     // }
 
-    const GetExpenses = (data) => {
+    const GetExpenses = () => {
 
         fetch
             ('https://localhost:7073/GetExpenseForSpecificBudget',
                 {
                     method: 'POST',
                     headers: { 'Content-type': 'application/json; charset=UTF-8' },
+                    //body: JSON.stringify({ userId: input.userId, budgetId: input.budgetId })
                     body: JSON.stringify({ userId: userId, budgetId: budgetId })
+
                 },
             )
-            .then(response => response.json()) //.json() is a function that converts the "response" from the fetch into a JSON object
+            .then(response => response.json())
             .then(function (data) {
                 appendData(data);
             })
@@ -126,5 +129,5 @@ export const render = () => {
 
 
     GetBudgets(userId);
-    GetExpenses();
+    //GetExpenses();
 }
