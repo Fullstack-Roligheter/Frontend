@@ -3,7 +3,7 @@ const registerButton = document.getElementById('register')
 
 const RegisterPage = () => {
     console.log('Button was clicked')
-    window.location.replace("http://127.0.0.1:5500/Register-an-account.html");
+    window.location.replace("http://127.0.0.1:5500/Frontend/Register-an-account.html");
     //den funkar på Leis datorn,men kan behöva ändras när vi mergar
 }
 
@@ -11,7 +11,7 @@ registerButton.addEventListener('click', RegisterPage)
 
 const signInButton = document.getElementById('signIn')
 
-
+//set timeout eller liknande för att få bort texten så att felmeddelande och nologintext visas samtidigt
 const minDiv = document.getElementById('Felmeddelande')
 const felmeddelande = document.createElement("p")
 const text = document.createTextNode('Username or Password is missing')
@@ -57,7 +57,7 @@ const SignIn = (e) => {
                 } else {
                     //eller redirect inloggad sida
                     console.log('Success')
-                    window.location.replace("http://127.0.0.1:5500/Spa.test/index.html");
+                    window.location.replace("http://127.0.0.1:5500/Frontend/Spa.test/index.html");
                     return resp.json()
                     .then(data => console.log(data))
                 }
@@ -68,5 +68,5 @@ const SignIn = (e) => {
 
     }
 }
-
 signInButton.addEventListener('click', SignIn)
+//signInButton.addEventListener('submit', SignIn)
