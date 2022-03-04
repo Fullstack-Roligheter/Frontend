@@ -33,7 +33,7 @@ const SignIn = (e) => {
     signInForm.Password = document.getElementById("Password").value
     console.log(signInForm);
     const jsonStringObj = JSON.stringify(signInForm);
-    debugger
+    //debugger
     //på den skapa en fetch på den för att skicka datan vidare
     if (signInForm.Username === "" || signInForm.Password === "") {
         //Om json inte är komplett skicka ut felmeddelande gör texten röd??
