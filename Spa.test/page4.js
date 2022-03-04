@@ -1,9 +1,11 @@
+'use strict';
 export const render = () => {
     let userId = 1;
     let budgetId = '';
     let tempList = [];
     let budgetName = '';
-    //let newData = [];
+
+    const body = document.getElementById('app')
 
     const GetBudgets = (loggedInUserId) => {
         fetch
@@ -15,30 +17,26 @@ export const render = () => {
                 },
             )
             .then(response => response.json())
-            .then(function (data) { PopulateList(data); })
+            .then(function (data) {
+                PopulateList(data);
+            })
     }
 
     const PopulateList = (data) => {
         tempList = data
         ListAllBudgetInDropdown(data)
-        //console.log(tempList)
     }
 
-
     const ListAllBudgetInDropdown = (data) => {
-
-        let body = document.getElementById('app')
         let menu = document.createElement('select')
         menu.setAttribute('id', 'menu')
 
         for (let i = 0; i < data.length; i++) {
-
             let option = document.createElement('option')
             option.setAttribute('id', 'option')
             option.setAttribute('value', i)
             option.innerHTML = data[i].budgetName
             menu.appendChild(option)
-
         }
         body.appendChild(menu);
         MenuChange();
@@ -69,65 +67,54 @@ export const render = () => {
             }
         }
 
-        //newData = JSON.stringify({ userId: userId, budgetId: budgetId })
-        //ClearExpenses()
-        //GetExpenses(newData)
         GetExpenses()
     }
 
-    // const ClearExpenses = () => {
-    //     document.getElementById('Budget-Title').remove
-    //     document.getElementById('Budget-Item').remove
-    // }
-
-    const GetExpenses = () => {
-
-        fetch
+    const GetExpenses = async () => {
+        const response = await fetch
             ('https://localhost:7073/GetExpenseForSpecificBudget',
                 {
                     method: 'POST',
                     headers: { 'Content-type': 'application/json; charset=UTF-8' },
-                    //body: JSON.stringify({ userId: input.userId, budgetId: input.budgetId })
                     body: JSON.stringify({ userId: userId, budgetId: budgetId })
-
                 },
             )
-            .then(response => response.json())
-            .then(function (data) {
-                appendData(data);
-            })
+        const data = await response.json();
 
-        const appendData = (data) => {
+        const oldExpensesContainerEl = document.getElementById('expenses-container');
+        if (oldExpensesContainerEl) oldExpensesContainerEl.remove();
 
-            let body = document.getElementById('app')
-            // document.getElementById('Budget-Title').remove
-            // document.getElementById('Budget-Item').remove
-            for (let i = 0; i < data.length; i++) {
-                let div = document.createElement("div")
-                div.setAttribute('id', 'Budget-Title')
-                //div.innerHTML = '';
-                div.innerHTML =
-                    'Budget Name : ' + data[i].budgetName + '<br/><br/>' + 'Expenses :' + '<br/>';
+        const newExpensesContainerEl = document.createElement('div')
+        newExpensesContainerEl.setAttribute('id', 'expenses-container')
 
-                body.appendChild(div);
+        const date = new Date();
+        // newExpensesContainerEl.innerHTML = date.getMilliseconds();
 
-                for (let j = 0; j < data[i].expenses.length; j++) {
-                    let div2 = document.createElement("div");
-                    div2.setAttribute('id', 'Budget-Item')
-                    //div2.innerHTML = '';
-                    div2.innerHTML =
-                        'Category Name : ' + data[i].expenses[j].categoryName + '<br/>' +
-                        'Amount : ' + data[i].expenses[j].amount + '<br/>' +
-                        'Recipient : ' + data[i].expenses[j].recipient + '<br/>' +
-                        'Date : ' + data[i].expenses[j].date + '<br/>' +
-                        'Comment : ' + data[i].expenses[j].comment + '<br/><br/>';
-                    body.appendChild(div2);
-                }
+        body.appendChild(newExpensesContainerEl)
+
+        for (let i = 0; i < data.length; i++) {
+
+            let div1 = document.createElement("div")
+            div1.setAttribute('id', 'Budget-Title')
+            // div1.innerHTML = date.getMilliseconds();
+            div1.innerHTML =
+                'Budget Name : ' + data[i].budgetName + '<br/><br/>' + 'Expenses :' + '<br/>';
+
+            newExpensesContainerEl.appendChild(div1);
+
+            for (let j = 0; j < data[i].expenses.length; j++) {
+                let div2 = document.createElement("div");
+                div2.setAttribute('class', 'Budget-Item')
+                //div2.innerHTML = date.getMilliseconds();
+                div2.innerHTML =
+                    'Category Name : ' + data[i].expenses[j].categoryName + '<br/>' +
+                    'Amount : ' + data[i].expenses[j].amount + '<br/>' +
+                    'Recipient : ' + data[i].expenses[j].recipient + '<br/>' +
+                    'Date : ' + data[i].expenses[j].date + '<br/>' +
+                    'Comment : ' + data[i].expenses[j].comment + '<br/><br/>';
+                newExpensesContainerEl.appendChild(div2);
             }
         }
     }
-
-
     GetBudgets(userId);
-    //GetExpenses();
 }
