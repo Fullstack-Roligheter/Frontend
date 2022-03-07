@@ -4,7 +4,6 @@ const registerButton = document.getElementById('register')
 const RegisterPage = () => {
     console.log('Button was clicked')
     window.location.replace("http://127.0.0.1:5500/Frontend/Register-an-account.html");
-    //den funkar på Leis datorn,men kan behöva ändras när vi mergar
 }
 
 registerButton.addEventListener('click', RegisterPage)
@@ -23,6 +22,7 @@ noLogin.appendChild(noLoginText)
 
 //skapa en eventlistener för logga in knappen
 const SignIn = (e) => {
+    //debugger
     e.preventDefault()
         //PreventDefault här??
         //e.stopPropagation() // Ska denna verkligen vara här och om så vad faan gör den??
@@ -33,7 +33,7 @@ const SignIn = (e) => {
     signInForm.Password = document.getElementById("Password").value
     console.log(signInForm);
     const jsonStringObj = JSON.stringify(signInForm);
-    debugger
+    //debugger
     //på den skapa en fetch på den för att skicka datan vidare
     if (signInForm.Username === "" || signInForm.Password === "") {
         //Om json inte är komplett skicka ut felmeddelande gör texten röd??
