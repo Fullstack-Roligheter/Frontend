@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spa Test</title>
+    <style>
+        .nav {
+            width: 600px;
+            height: 60px;
+            margin: 50px auto;
+            /* text-align: center; */
+            border: 3px solid #ccc;
+            background-color: #375d8f;
+        }
+
+        button {
+            height: 30px;
+            margin: 3px;
+            cursor: pointer;
+            display: center;
+        }
+
+        #app {
+            display: flex;
+            justify-content: center;
+        }
+
+        .nav li {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            float: left;
+            height: 30px;
+            line-height: 30px;
+            padding: 0 20px;
+            text-align: justify;
+            cursor: pointer;
+            list-style: none;
+        }
+
+        li {
+            list-style-type: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <ul>
+            <li id="li1">Home Page</li>
+            <li id="li2">Check User</li>
+            <li id="li3">Add Expense</li>
+            <li id="li4">Check Budget</li>
+        </ul>
+    </div>
+    <div id="app"></div>
+
+    <script src="main.js" type="module"></script>
+    <script src="./Expense/Fetching.js"></script>
+</body>
+</html>
