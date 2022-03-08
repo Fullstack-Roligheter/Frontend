@@ -2,6 +2,7 @@ import { render as page1Render } from "./page1.js";
 import { render as page2Render } from "./page2.js";
 import { render as page3Render } from "./page3.js";
 import { render as page4Render } from "./page4.js";
+import { render as page6Render } from "./page6.js";
 import { registerChangeListener } from "./router.js";
 import { Header } from "./header.js";
 
@@ -22,6 +23,10 @@ registerChangeListener((newPage => {
             break;
         case 'page4':
             page4Render(app);
+            break;
+        case 'page6':
+            page6Render(app);
+            break;
     }
 }))
 
