@@ -31,7 +31,7 @@ const SignIn = (e) => {
     if (signInForm.Username === "" || signInForm.Password === "") {
 
         minDiv.appendChild(felmeddelande)
-        setTimeout(() => minDiv.removeChild(felmeddelande), 2000)
+        setTimeout(() => minDiv.removeChild(felmeddelande), 5000)
     } 
     else
     {
@@ -48,7 +48,7 @@ const SignIn = (e) => {
                 if (resp.status === 401)
                 {
                     minDiv.appendChild(noLogin)
-                    setTimeout(() => minDiv.removeChild(noLogin), 2000)
+                    setTimeout(() => minDiv.removeChild(noLogin), 5000)
                 } 
                 else 
                 {
