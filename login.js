@@ -4,6 +4,7 @@ const input = document.getElementsByClassName('input')
 
 const RegisterPage = () => {
     console.log('Button was clicked')
+    //Det finns en liten risk att denna url adress inte längre funkar, kolla funktionalitet efter att allt är merge'at
     window.location.replace("http://127.0.0.1:5500/Register-an-account.html");
 }
 
@@ -26,8 +27,7 @@ const SignIn = (e) => {
     signInForm.Username = document.getElementById("Username").value
     signInForm.Password = document.getElementById("Password").value
     const jsonStringObj = JSON.stringify(signInForm);
-
-
+  
     if (signInForm.Username === "" || signInForm.Password === "") {
 
         minDiv.appendChild(felmeddelande)
@@ -52,6 +52,7 @@ const SignIn = (e) => {
                 } 
                 else 
                 {
+                    //Det finns en liten risk att denna url adress inte längre funkar, kolla funktionalitet efter att allt är merge'at
                     window.location.replace("http://127.0.0.1:5500/Spa.test/index.html");
                     return resp.json()
                     .then(data => console.log(data)) //Denna ska så småningsom göras om till en locale data storage för att ta User ID

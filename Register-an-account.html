@@ -1,4 +1,3 @@
-FrontendLogin_SBW_DE
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,10 +29,14 @@ FrontendLogin_SBW_DE
             margin: 10px auto;
         }
         
-        img {
+        #form {
+            position: relative;
+        }
+        
+        #form img {
             position: absolute;
-            top: 185px;
-            right: 670px;
+            top: 165px;
+            right: 121px;
             width: 22px;
         }
         
@@ -72,7 +75,6 @@ FrontendLogin_SBW_DE
             background-color: rgb(255, 235, 167);
             border-radius: 10px;
             cursor: pointer;
-            position: relative;
         }
     </style>
 </head>
@@ -80,6 +82,9 @@ FrontendLogin_SBW_DE
 <body>
     <div class="box">
         <form id="form" action="">
+            <label for="eye">
+                <img src="pic/close.jpg!bg" alt="" id="eye">
+            </label>
             <label for="userName">
                     <input type="text" name="" placeholder="Name" id="userName" required><br>
                 </label>
@@ -88,9 +93,6 @@ FrontendLogin_SBW_DE
                 </label>
             <label for="email">
                     <input type="text" name="" placeholder="Email" id="email" required><br>
-            </label>
-            <label for="eye">
-                <img src="pic/close.jpg!bg" alt="" id="eye">
             </label>
             <label for="pwd">
                 <input type="password" class="ipt" name="" placeholder="Password" id="pwd" required><br>
