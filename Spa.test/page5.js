@@ -1,7 +1,4 @@
 export const render = (root) => {
-  GetBudgetName('1')
-  GetCategory()
-
   const xhr = new XMLHttpRequest()
   const container = document.getElementById('app')
   xhr.onload = function () {
@@ -13,33 +10,41 @@ export const render = (root) => {
   }
   xhr.open('get', './Filter/expenseFilter.html')
   xhr.send()
+
+  GetBudgetName('2')
 }
 
-async function GetBudgetName(id) {
-  const resonse = await fetch(
-    // `https://localhost:7073/ListAllBudgetForSpecificUser/${id}
-    // `
-    `https://localhost:7073/ListAllBudgetForSpecificUser?UserId=${id} 
-    `
-  )
-  const data = await resonse.json()
-  console.log('data', data)
-  const app = (document.querySelector('.option1').innerHTML = `
-  <label for="budget-value">Budget</label>
-    <select class='budget-value'>
-    ${data.map((budget) => `<option label>${budget.budgetName}</option>`)}
-        </select> 
-        `)
+async function GetBudgetName(Userid) {
+  try {
+    const response = await fetch(
+      `https://localhost:7073/ListAllBudgetForSpecificUser?UserId=${Userid} 
+      `
+    )
+    if (!response.ok) {
+      throw new Error(`No response ${response.status}`)
+    }
+    const data = await response.json()
+
+    if (data.length == 0) {
+      throw new Error(`There is/are no budget for this user yet!`)
+    }
+    console.log('budget', data)
+    DropDown(data)
+
+    GetCategory(data[0].budgetName)
+  } catch (error) {
+    ErrorMsg(error)
+    console.error(error)
+  }
 }
 
-async function GetCategory() {
-  const resonse = await fetch(`https://localhost:7073/api/Category/category`)
-  const data = await resonse.json()
-  console.log('data', data)
-  const app = (document.querySelector('.option2').innerHTML = `
-  <label for="category-value">Category</label>
-    <select class='category-value'>
-    ${data.map((category) => `<option>${category.categoryName}</option>`)}
-        </select>
-        `)
+export const DropDown = (data) => {
+  setTimeout(() => {
+    const app = (document.querySelector('.option1').innerHTML = `
+        <label for="budget-value">Budget</label>
+        <select class='budget-value'>
+            ${data.map(
+              (budget) => `<option label>${budget.budgetName}</option>`
+            )}</select> `)
+  }, 0)
 }
