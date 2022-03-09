@@ -1,18 +1,17 @@
-//skapa en event listener för registreringsknappen
-const registerButton = document.getElementById('register')
+const registerButton = document.getElementById('id1')
+const signInButton = document.getElementById('id2')
+const input = document.getElementsByClassName('input')
 
 const RegisterPage = () => {
     console.log('Button was clicked')
+    //Det finns en liten risk att denna url adress inte längre funkar, kolla funktionalitet efter att allt är merge'at
     window.location.replace("http://127.0.0.1:5500/Register-an-account.html");
-    //den funkar på Leis datorn,men kan behöva ändras när vi mergar
 }
 
 registerButton.addEventListener('click', RegisterPage)
 
-const signInButton = document.getElementById('signIn')
-
-
 const minDiv = document.getElementById('Felmeddelande')
+
 const felmeddelande = document.createElement("p")
 const text = document.createTextNode('Username or Password is missing')
 felmeddelande.appendChild(text)
@@ -21,25 +20,21 @@ const noLogin = document.createElement('p')
 const noLoginText = document.createTextNode('Wrong Username or Password')
 noLogin.appendChild(noLoginText)
 
-//skapa en eventlistener för logga in knappen
 const SignIn = (e) => {
-    e.preventDefault()
-        //PreventDefault här??
-        //e.stopPropagation() // Ska denna verkligen vara här och om så vad faan gör den??
 
-    console.log('Button2 was clicked')
+    e.preventDefault()
     const signInForm = {};
     signInForm.Username = document.getElementById("Username").value
     signInForm.Password = document.getElementById("Password").value
-    console.log(signInForm);
     const jsonStringObj = JSON.stringify(signInForm);
-    //debugger
-    //på den skapa en fetch på den för att skicka datan vidare
+  
     if (signInForm.Username === "" || signInForm.Password === "") {
-        //Om json inte är komplett skicka ut felmeddelande gör texten röd??
+
         minDiv.appendChild(felmeddelande)
-    } else {
-        //Om json är komplett gör min fetch här   Få denna att funka, jag vill ha tillbaka en body med true eller false innan jag fortsätter med nästa del.
+        setTimeout(() => minDiv.removeChild(felmeddelande), 5000)
+    } 
+    else
+    {
         fetch('https://localhost:7073/api/User/login', {
                 method: "POST",
                 headers: {
@@ -50,22 +45,20 @@ const SignIn = (e) => {
             .then(resp => {
 
                 console.log(resp.status)
-                if (resp.status === 401) {
-                    //I min fetch ny if sats som skickar en append child som rad 42 med meddelande "Fel lösen eller username" 
-                    console.log('No Success')
+                if (resp.status === 401)
+                {
                     minDiv.appendChild(noLogin)
-                } else {
-                    //eller redirect inloggad sida
-                    console.log('Success')
+                    setTimeout(() => minDiv.removeChild(noLogin), 5000)
+                } 
+                else 
+                {
+                    //Det finns en liten risk att denna url adress inte längre funkar, kolla funktionalitet efter att allt är merge'at
                     window.location.replace("http://127.0.0.1:5500/Spa.test/index.html");
                     return resp.json()
-                    .then(data => console.log(data))
+                    .then(data => console.log(data)) //Denna ska så småningsom göras om till en locale data storage för att ta User ID
                 }
                 //lägga till en ny else if för att fånga andra fel typ 500??
             })
-
-
-
     }
 }
 
