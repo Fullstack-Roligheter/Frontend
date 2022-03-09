@@ -1,5 +1,5 @@
-const registerButton = document.getElementById('register')
-const signInButton = document.getElementById('signIn')
+const registerButton = document.getElementById('id1')
+const signInButton = document.getElementById('id2')
 const input = document.getElementsByClassName('input')
 
 const RegisterPage = () => {
@@ -7,19 +7,8 @@ const RegisterPage = () => {
     window.location.replace("http://127.0.0.1:5500/Register-an-account.html");
 }
 
-// const Reload = () => {
-//     let count = 0;
-//     for (let count = 0; count < 10000; count++) {
-//         if (count < 1000){
-//             setTimeout(() => minDiv.remove(felmeddelande), 5000)
-//         }
-//         count++
-//     }
-// }
-
 registerButton.addEventListener('click', RegisterPage)
 
-//set timeout eller liknande för att få bort texten så att felmeddelande och nologintext visas samtidigt
 const minDiv = document.getElementById('Felmeddelande')
 
 const felmeddelande = document.createElement("p")
@@ -42,20 +31,7 @@ const SignIn = (e) => {
     if (signInForm.Username === "" || signInForm.Password === "") {
 
         minDiv.appendChild(felmeddelande)
-        setTimeout(() => minDiv.remove(felmeddelande), 5000)
-        //Reload()
-        // (function() 
-        // {
-        //     var counter = 0;
-         
-        //     function foo() 
-        //     {
-        //         minDiv.remove(felmeddelande)
-         
-        //         if ((++counter) < 5) window.setTimeout(foo, 3000);
-        //     }
-        // })
-        // ();
+        setTimeout(() => minDiv.removeChild(felmeddelande), 2000)
     } 
     else
     {
@@ -71,10 +47,8 @@ const SignIn = (e) => {
                 console.log(resp.status)
                 if (resp.status === 401)
                 {
-                    //Varför funkar inte min SetTimeout??
                     minDiv.appendChild(noLogin)
-                    setTimeout(() => minDiv.remove(noLogin), 5000)
-                    console.log('NoSuccess')
+                    setTimeout(() => minDiv.removeChild(noLogin), 2000)
                 } 
                 else 
                 {
@@ -86,9 +60,5 @@ const SignIn = (e) => {
             })
     }
 }
-//debugger
-//setTimeout(minDiv.removeChild(felmeddelande), 2000)
-//setTimeout(minDiv.removeChild(noLogin), 2000)
+
 signInButton.addEventListener('click', SignIn)
-//input.addEventListener('click', minDiv.remove())
-//signInButton.addEventListener('submit', SignIn)
