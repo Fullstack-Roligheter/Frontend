@@ -11,7 +11,7 @@ export const render = (root) => {
   xhr.open('get', './Filter/expenseFilter.html')
   xhr.send()
 
-  GetBudgetName('2')
+  GetBudgetName('1')
 }
 
 async function GetBudgetName(Userid) {
