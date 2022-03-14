@@ -1,5 +1,5 @@
 import { render as page1Render } from "./home.js";
-import { render as page2Render } from "./page2.js";
+import { render as page2Render } from "./checkUser.js";
 import { render as page3Render } from "./page3.js";
 import { render as page4Render } from "./page4.js";
 import { render as page5Render } from './filters.js';
@@ -16,7 +16,7 @@ registerChangeListener((newPage) => {
         case 'home':
             page1Render(app);
             break;
-        case 'page2':
+        case 'checkUser':
             page2Render(app);
             break;
         case 'page3':
