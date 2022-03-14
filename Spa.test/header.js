@@ -21,7 +21,7 @@ const changeColor = () => {
 
 export class Header {
     constructor() {
-        registerMenuLi('li1', 'page1');
+        registerMenuLi('li1', 'home');
         registerMenuLi('li2', 'page2');
         registerMenuLi('li3', 'page3');
         registerMenuLi('li4', 'page4');

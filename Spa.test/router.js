@@ -1,4 +1,4 @@
-let currentPage = 'page1';
+let currentPage = 'home';
 let listeners = [];
 
 export const changePage = (newPage) => {
