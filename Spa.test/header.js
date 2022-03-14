@@ -26,6 +26,6 @@ export class Header {
         registerMenuLi('li3', 'page3');
         registerMenuLi('li4', 'page4');
         registerMenuLi('li5', 'page5');
-        registerMenuLi('li6', 'page6');
+        registerMenuLi('li6', 'ListAllExpensesInBudget');
     }
 }

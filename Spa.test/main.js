@@ -3,7 +3,7 @@ import { render as page2Render } from "./page2.js";
 import { render as page3Render } from "./page3.js";
 import { render as page4Render } from "./page4.js";
 import { render as page5Render } from './page5.js';
-import { render as page6Render } from "./page6.js";
+import { render as ListAllExpensesInBudgetRender } from "./ListAllExpensesInBudget.js";
 import { registerChangeListener } from "./router.js";
 import { Header } from "./header.js";
 
@@ -28,8 +28,8 @@ registerChangeListener((newPage) => {
         case 'page5':
             page5Render(app)
             break;
-        case 'page6':
-            page6Render(app);
+        case 'ListAllExpensesInBudget':
+            ListAllExpensesInBudgetRender(app);
             break;
     }
 })
