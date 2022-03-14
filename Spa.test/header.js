@@ -24,8 +24,8 @@ export class Header {
         registerMenuLi('li1', 'home');
         registerMenuLi('li2', 'page2');
         registerMenuLi('li3', 'page3');
-        registerMenuLi('li4', 'page4');
+        registerMenuLi('li4', 'ListAllExpensesInBudget');
         registerMenuLi('li5', 'filters');
-        registerMenuLi('li6', 'ListAllExpensesInBudget');
+        registerMenuLi('li6', 'ListAllExpensesInBudgetCat');
     }
 }
