@@ -1,4 +1,4 @@
-import { render as page1Render } from "./page1.js";
+import { render as page1Render } from "./home.js";
 import { render as page2Render } from "./page2.js";
 import { render as page3Render } from "./page3.js";
 import { render as page4Render } from "./page4.js";
@@ -13,7 +13,7 @@ const app = document.getElementById('app')
 registerChangeListener((newPage) => {
     app.innerHTML = '';
     switch (newPage) {
-        case 'page1':
+        case 'home':
             page1Render(app);
             break;
         case 'page2':
