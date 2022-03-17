@@ -6,6 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Spa Test</title>
     <style>
+      * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        font-size: 100%;
+        vertical-align: baseline;
+        background: transparent;
+      }
+
       .nav {
         width: 900px;
         height: 60px;
@@ -22,10 +32,10 @@
         display: center;
       }
 
-      #app {
+      /* #app {
         display: flex;
         justify-content: center;
-      }
+      } */
 
       .nav li {
         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -42,13 +52,13 @@
         list-style-type: none;
       }
 
-      .container {
+      /* .container {
         display: grid;
         grid-template-columns: 200px 200px 200px;
         grid-template-rows: 50px 50px 1fr 1fr;
 
         align-items: start;
-      }
+      } */
       .error {
         grid-column: 1/-1;
         grid-row: 1/2;
@@ -110,6 +120,7 @@
   <body>
     <div class="nav">
         <ul>
+            <li id="sign">XPens</li>
             <li id="li1">Home Page</li>
             <li id="li2">Check User</li>
             <li id="li3">Add Expense</li>
