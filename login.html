@@ -12,42 +12,47 @@
             padding: 0;
         } */
         body {
-            background-image: linear-gradient(to right, rgb(33, 33, 77), rgb(88, 76, 172) 50%, rgb(136, 136, 192));
             /* background-image: linear-gradient(180deg, rgb(33, 33, 77), rgb(88, 76, 172) 50%, rgb(136, 136, 192)); */
             background-image: url("pic/backgroundLogin.jpg");
-            background-size: 100%;
+            background-size: cover;
             background-repeat: no-repeat;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
         }
 
         .login {
             display: grid;
             border: solid 2px rgb(33, 33, 77);
             margin: 30px auto;
-            width: 450px;
-            height: 430px;
-            border-radius: 25px; /*Hur mycket radius borde man ha??*/
-            gap: 15px;
-            align-items: center;
+            width: 28.125rem;               /*Denna var tidigare 450px, försöker anpassa för att vara flexibel*/
+            height: 26.875rem;              /*Dena var tidigare 430px*/
+            border-radius: 25px;            /*Hur mycket radius borde man ha??*/
+            gap: 15px;                      /*Vad faan gör denna??*/
+            align-items: center;            /*Är denna överflödig??*/
             grid-template-rows: 50px 1fr 10px 30px 30px 1fr;
             grid-template-columns: 100px 100px 100px 100px;
             background-color: rgba(136, 136, 192, 0.8);
-            /* background-color: chartreuse; */
+            /*background-color: chartreuse;*/    /*Förmodligen världens bästa färg!!*/
         }
 
         .header {
             grid-row: 1 / 2;
             grid-column: 1 / 3;
             margin: 0;
+            /* overflow: hidden; */
             align-self: start;
-            text-align: start;
+            /* text-align: start; */        /*Är denna överflödig??*/
             font-size: 70px;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             padding: 5px;
         }
 
         .text {
-            margin: 0;
-            justify-self: center;
+            /* margin: 0; */                /*Denna känns överflödig*/
+            /* justify-self: center; */
             align-self: center;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: white;
@@ -82,6 +87,7 @@
             grid-row: 4/ 5;
             /* margin-bottom: 20px; */
             padding: 2px;
+            box-shadow: rgba(0, 0, 0, 0.712) 0 15px 30px -5px;
         }
 
         .input2 {
@@ -91,6 +97,7 @@
             /* margin-bottom: 5px; */
             padding: 2px;
             order: -1;
+            box-shadow: rgb(60, 255, 0) 0 15px 30px -5px;
 
         }
 
@@ -99,8 +106,8 @@
             /* justify-self:end; */
             /* margin: 1; */
             align-self: flex-start;
-            justify-self: flex-start;
-            grid-column: 2/3;
+            justify-self: center;
+            grid-column: 2 / 3;
             grid-row: 6 / 7;
         }
 
@@ -109,22 +116,23 @@
             /* width: 100px;
             margin: 1px; */
             align-self: flex-start;
-            justify-self: flex-end;
-            grid-column: 3/4;
+            justify-self: center;
+            grid-column: 3 / 4;
             grid-row: 6 / 7;
         }
 
         #id3 {
             grid-column: 2 / 3;
             grid-row: 6 / 7;
-            padding-bottom: 20px;
+            padding: 2px;
             margin: 0;
-            margin-bottom: 10;
+            /* margin-bottom: 10; */
             align-self: center;
             justify-self: center;
             color: white;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             font-size: 12px;
+            /*Glöm inte att ta bort den här fula jäveln*/box-shadow: rgb(255, 0, 0) 0 15px 30px -5px; /*Finns det någon text shadow??*/
         }
 
         .btn {
@@ -132,16 +140,16 @@
             background-image: linear-gradient(144deg, rgb(33, 33, 77), #584cac 50%, rgb(136, 136, 192));
             border: 0;
             border-radius: 8px;
-            box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+            box-shadow: rgba(0, 0, 0, 0.712) 0 15px 30px -5px;   /*Fin skugga runt knappen, vill ja ha denna och ska den vara annan färg och transparens-nivå?*/
             box-sizing: border-box;
             color: #FFFFFF;
             display: flex;
             font-family: Phantomsans, sans-serif;
-            font-size: 20px;
+            font-size: 1.25rem;             /*Denna var tidigare 20px*/
             justify-content: center;
             line-height: 1em;
             max-width: 100%;
-            min-width: 140px;
+            /* min-width: 140px; */         /*Någonting med bland annat denna för att få knapparna responsiva men behålla rätt dimensioner*/
             padding: 3px;
             text-decoration: none;
             user-select: none;
@@ -150,10 +158,15 @@
             white-space: nowrap;
             cursor: pointer;
         }
+        /*Original färgen till box-shadow knapparna 151, 65, 252, 0.2*/
 
-        .btn:active,
+        .btn:active,                        /*Vad fan gör denna?!?!?*/
         .btn:hover {
-            outline: 0;
+            background-color: black;
+            color: black;
+            outline-color: black;
+            outline: 110px;
+            outline-style: solid;
         }
 
         .btn span {
@@ -172,8 +185,8 @@
 
         @media (min-width: 768px) {
             .btn {
-                font-size: 0.8rem;
-                min-width: 100px;
+                font-size: 0.9rem;
+                min-width: 100%;
             }
         }
 
@@ -191,7 +204,7 @@
 
         <input type="password" id="Password" class="input input2" placeholder="Password" required>
 
-        <button type="submit" class="btn signIn" id="id2" hover><span class="text">Log In</span></button>
+        <button type="submit" class="btn signIn" id="id2" hover><span class="text">Sign in</span></button>
 
         <button type="submit" class="btn register" id="id1" hover><span class="text">Register</span></button>
 
