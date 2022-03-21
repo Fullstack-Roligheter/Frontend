@@ -4,6 +4,7 @@ import { render as page3Render } from "./addexpense.js";
 import { render as ListAllExpensesInBudgetRender } from "./ListAllExpensesInBudget.js";
 import { render as page5Render } from "./filters.js";
 import { render as ListAllExpensesInBudgetCatRender } from "./ListAllExpensesInBudgetCat.js";
+import { render as CreateNewCategory } from "./CreateNewCategory.js";
 import { registerChangeListener } from "./router.js";
 import { Header } from "./header.js";
 
@@ -31,6 +32,9 @@ registerChangeListener((newPage) => {
     case "ListAllExpensesInBudgetCat":
       ListAllExpensesInBudgetCatRender(app);
       break;
+      case "CreateNewCategory":
+        CreateNewCategory(app);
+        break;
   }
 });
 

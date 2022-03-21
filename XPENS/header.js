@@ -27,5 +27,6 @@ export class Header {
     registerMenuLi("li4", "ListAllExpensesInBudget");
     registerMenuLi("li5", "filters");
     registerMenuLi("li6", "ListAllExpensesInBudgetCat");
+    registerMenuLi("li7", "CreateNewCategory");
   }
 }

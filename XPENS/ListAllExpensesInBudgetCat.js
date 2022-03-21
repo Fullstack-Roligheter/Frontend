@@ -102,7 +102,6 @@ export const render = () => {
 
       for (let k = 0; k < data[i].categories.length; k++) {
         console.log(data[i].categories.length);
-        debugger;
         let div3 = document.createElement("div");
         div3.setAttribute("class", "category-name");
         div3.innerHTML =
