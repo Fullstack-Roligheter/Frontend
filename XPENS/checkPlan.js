@@ -24,7 +24,7 @@ export const render = (app) => {
     btn.addEventListener('click', () => {
         const info = document.querySelector('#info');
 
-        fetch('https://localhost:7073/api/saving')
+        fetch(`https://localhost:7073/api/saving/getplans?UserId=${2}`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('fetch error')

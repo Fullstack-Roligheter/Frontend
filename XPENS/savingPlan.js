@@ -65,7 +65,7 @@ export const render = (app) => {
     const myForm = document.getElementById('myForm');
     myForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        fetch('https://localhost:7073/api/saving', {
+        fetch('https://localhost:7073/api/saving/addplan', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
