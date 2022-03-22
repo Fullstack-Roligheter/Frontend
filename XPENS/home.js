@@ -1,22 +1,31 @@
 export const render = (root) => {
+    // let contentDiv = document.createElement('div');
+    // contentDiv.setAttribute('id', 'contentDiv');
+    // contentDiv.className = 'homeClass';
+    // let app = document.getElementById('app');
+    // app.appendChild(contentDiv);
 
-    const head = document.getElementsByTagName('head')[0];
-    let style = document.createElement('link');
-    style.rel = 'stylesheet';
-    style.type = 'text/css'
-    style.href = 'Style/homeStyle.css';
-    style.media = 'all';
-
-    let contentDiv = document.createElement('div');
-    contentDiv.setAttribute('id', 'contentDiv');
-    let app = document.getElementById('app');
-    app.appendChild(contentDiv);
-
-    head.appendChild(style);
-
-    const CreateDiv = (divId, inputText, inputType) => {
+    // let appDiv = document.getElementById('app');
+    // appDiv.className = 'homeClass'
+    
+    const CreateDiv = (divId, parentId, className) => {    
         
+        let newDiv = document.createElement('div');        
+        let parentDiv = document.getElementById(parentId);
+        newDiv.setAttribute('id', divId);
+        
+        if(className) {
+            newDiv.className = `${className} homeClass`;
+        } 
+        else {
+            newDiv.className = 'homeClass';
+        }
+        parentDiv.appendChild(newDiv);
+    }
+    
+    const CreateDivWithContent = (divId, parentId, inputText, inputType, className) => {        
         let newDiv = document.createElement('div');
+        let parentDiv = document.getElementById(parentId);
         
         if(inputText && !inputType) {
             const text = document.createTextNode(inputText);
@@ -31,14 +40,16 @@ export const render = (root) => {
         }
         
         newDiv.setAttribute('id', divId);
-        newDiv.className = 'gridDiv';
+        newDiv.className = `${className} homeClass`;
 
-        contentDiv.appendChild(newDiv);
+        parentDiv.appendChild(newDiv);
     }
-    let inputText;
-    CreateDiv('ItemA', inputText);
-    CreateDiv('ItemB', inputText);
-    CreateDiv('ItemC', inputText);
-    CreateDiv('ItemD', inputText);
-    CreateDiv('ItemE', 'Hello world!', 'h1');
+
+    CreateDiv('HomeContainer', 'app')
+    CreateDiv('ContentDiv', 'HomeContainer')
+    CreateDiv('ItemA', 'ContentDiv', 'GridDiv');
+    CreateDiv('ItemB', 'ContentDiv', 'GridDiv');
+    CreateDiv('ItemC', 'ContentDiv', 'GridDiv');
+    CreateDiv('ItemD', 'ContentDiv', 'GridDiv');
+    CreateDivWithContent('ItemE','ContentDiv', 'Hello world!', 'h1', 'GridDiv');
 }
