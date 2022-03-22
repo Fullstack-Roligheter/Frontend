@@ -10,6 +10,7 @@ body, html {
     text-align: center;
     background-color: rgba(200, 231, 221, 0.87);
     border: 2px solid black;
+    margin: 5px;
 }
 
 .homeClass#ItemA {
