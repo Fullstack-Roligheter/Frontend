@@ -1,18 +1,10 @@
-export const render = (root) => {
-    // let contentDiv = document.createElement('div');
-    // contentDiv.setAttribute('id', 'contentDiv');
-    // contentDiv.className = 'homeClass';
-    // let app = document.getElementById('app');
-    // app.appendChild(contentDiv);
-
-    // let appDiv = document.getElementById('app');
-    // appDiv.className = 'homeClass'
+export  const render = (root) => {
     
     const CreateDiv = (divId, parentId, className) => {    
         
         let newDiv = document.createElement('div');        
         let parentDiv = document.getElementById(parentId);
-        newDiv.setAttribute('id', divId);
+        newDiv.id = divId;
         
         if(className) {
             newDiv.className = `${className} homeClass`;
@@ -23,7 +15,8 @@ export const render = (root) => {
         parentDiv.appendChild(newDiv);
     }
     
-    const CreateDivWithContent = (divId, parentId, inputText, inputType, className) => {        
+    const CreateDivWithContent = (divId, parentId, inputText, inputType, className) => {
+
         let newDiv = document.createElement('div');
         let parentDiv = document.getElementById(parentId);
         
@@ -39,7 +32,7 @@ export const render = (root) => {
             newDiv.appendChild(element);
         }
         
-        newDiv.setAttribute('id', divId);
+        newDiv.id = divId;
         newDiv.className = `${className} homeClass`;
 
         parentDiv.appendChild(newDiv);
