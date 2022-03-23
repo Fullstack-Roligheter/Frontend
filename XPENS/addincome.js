@@ -4,7 +4,7 @@ export const render = () => {
   div.classList.add('income')
 
   const form = document.createElement('form')
-  form.id = 'myForm'
+  form.id = 'myForm1'
   CreateFormElement(
     'label',
     'Income name',
