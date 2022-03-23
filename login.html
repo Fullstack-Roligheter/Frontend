@@ -7,99 +7,183 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        /* *{
+
+        body {
+            /* background-image: linear-gradient(180deg, rgb(33, 33, 77), rgb(88, 76, 172) 50%, rgb(136, 136, 192)); */
+            background-image: url("pic/backgroundLogin.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             margin: 0;
-            padding: 0;
-        } */
+        }
+
         .login {
             display: grid;
-            border: solid 2px rgb(68, 68, 68);
-            border-radius: 10px;
-            gap: 15px;
-            align-items: center;
-            width: 445px;
-            grid-template-rows: 1fr 1fr 10px 50px 1fr 1fr;
+            border: solid 2px rgb(33, 33, 77);
+            margin: 10% auto;
+            width: 28.125rem;               /*Denna var tidigare 450px, försöker anpassa för att vara flexibel*/
+            height: 26.875rem;              /*Dena var tidigare 430px*/
+            border-radius: 25px;            /*Hur mycket radius borde man ha??*/
+            gap: 15px;                      /*Vad faan gör denna??*/
+            /* align-items: center;            Är denna överflödig?? */
+            grid-template-rows: 90px 120px 30px 30px 1fr;
             grid-template-columns: 100px 100px 100px 100px;
+            background-color: rgba(136, 136, 192, 0.8);
+            /*background-color: chartreuse;*/    /*Förmodligen världens bästa färg!!*/
         }
 
         .header {
-            grid-row: 1 / -1;
+            grid-row: 1 / 2;
             grid-column: 1 / -1;
+            margin: 0;
+            margin-left: 11%;
+            /* overflow: hidden; */
             align-self: start;
-            text-align: center;
+            font-size: 70px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            padding: 1px;
         }
 
         .text {
-            margin: 0;
-            justify-self: center;
-            align-self: center;
-
-            padding-top: 15px;
-            text-align: center;
-            grid-column: 2/4;
+            grid-column: 1/-1;
             grid-row: 2 / 3;
+            margin: 0;
+            align-self: flex-start;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            padding-top: 5px;
+            text-align: center;
         }
 
-        /* #Felmeddelande {
-            margin-top: 20px;
-            justify-self: center;
-            align-self: center;
-            grid-column: 2/4;
-            grid-row: 3 / 4;
-        } */
-
         #Felmeddelande {
-            color: red;
-            margin: 4px;
+            color:rgb(161, 45, 45);
+            margin: 0px;
+            padding: 0px;
+            font-size: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: bold;
             grid-column: 1 / -1;
-            grid-row: 3 / 4;
+            grid-row: 2 / 3;
             justify-self: center;
-            align-self: center;
+            align-self: flex-end;
         }
 
         .input1 {
             grid-column: 2/4;
-            grid-row: 4/ 5;
-            margin-bottom: 20px;
+            grid-row: 3 / 4;
+            padding: 2px;
+            height: 20px;
         }
 
         .input2 {
-
-            grid-column: 2/4;
-            grid-row: 5 / 6;
-            margin-bottom: 20px;
+            grid-column: 2 /4;
+            grid-row: 4 / 5;
+            padding: 2px;
+            height: 20px;
 
         }
 
         .signIn {
-            grid-column: 1/3;
-            grid-row: 6 / -1;
+            align-self: flex-start;
+            justify-self: center;
+            grid-column: 2 / 3;
+            grid-row: 5 / 6;
         }
 
         .register {
-            grid-column: 3/-1;
-
-            grid-row: 6 / -1;
+            align-self: flex-start;
+            justify-self: center;
+            grid-column: 3 / 4;
+            grid-row: 5 / 6;
         }
+
+        #id3 {
+            grid-column: 2 / 3;
+            grid-row: 6 / 7;
+            padding: 2px;
+            margin: 0;
+            margin-bottom: 25px;
+            align-self: center;
+            justify-self: center;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 12px;
+        }
+
+        .btn {
+            align-items: center;
+            background-image: linear-gradient(144deg, rgb(33, 33, 77), #584cac 50%, rgb(136, 136, 192));
+            border: 0;
+            border-radius: 8px;
+            box-shadow: rgba(0, 0, 0, 0.712) 0 15px 30px -5px;   /*Fin skugga runt knappen, vill ja ha denna och ska den vara annan färg och transparens-nivå?*/
+            box-sizing: border-box;
+            color: #FFFFFF;
+            display: flex;
+            font-family: Phantomsans, sans-serif;
+            font-size: 1rem;             /*Denna var tidigare 20px*/
+            justify-content: center;
+            line-height: 1em;
+            min-width: 100%;
+            padding: 3px;
+            text-decoration: none;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            white-space: nowrap;
+            cursor: pointer;
+        }
+        /*Original färgen till box-shadow knapparna 151, 65, 252, 0.2*/
+
+        .btn:active,                        /*Vad fan gör denna?!?!?*/
+        .btn:hover {
+            outline-color: black;
+            outline: 0px;
+            outline-style: solid;
+        }
+
+        .btn span {
+            background-color: rgb(5, 6, 45);
+            padding: 10px 10px;
+            padding-top: 7px;
+            border-radius: 6px;
+            width: 100%;
+            height: 100%;
+            transition: 300ms;
+        }
+
+        .btn:hover span {
+            background: none;
+        }
+
+        @media (min-width: 768px) {
+            .btn {
+                font-size: 1rem;
+                min-width: 100%;
+            }
+        }
+
     </style>
 </head>
 
 <body>
     <div class="login">
-        <h1 class="header">Fallprojekt Budgetapp</h1>
+        <h1 class="header">Xpense</h1>
 
-        <h2 class="text">Placeholder med väldigt vacker text</h2>
+        <h2 class="text">Keep your economy balanced!</h2>
         <div id="Felmeddelande"></div>
 
-        <input type="text" id="Username" class="input input1" placeholder="User name" required>
+        <input type="text" id="Username" class="input input1" placeholder="Username" required>
 
         <input type="password" id="Password" class="input input2" placeholder="Password" required>
 
-        <button class="signIn" id="id2">Log In</button>
+        <button type="submit" class="btn signIn" id="id2" hover><span class="text">Sign in</span></button>
 
-        <button class="register" id="id1">Register</button>
+        <button type="submit" class="btn register" id="id1" hover><span class="text">Register</span></button>
 
-
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" id="id3">Forgot password?</a>
 
         <script src="login.js"></script>
 </body>

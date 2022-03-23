@@ -5,8 +5,9 @@ const input = document.getElementsByClassName("input");
 const RegisterPage = () => {
   console.log("Button was clicked");
   //Det finns en liten risk att denna url adress inte längre funkar, kolla funktionalitet efter att allt är merge'at
-  window.location.replace("http://127.0.0.1:5500/Register-an-account.html");
-};
+  // window.location.replace("http://127.0.0.1:5500/Register-an-account.html");
+  window.location.href = "Register-an-account.html" //Ska man använda denna metod istället för .replace för att slippa problem
+};                                                  //med att den öppnar fel port??
 
 registerButton.addEventListener("click", RegisterPage);
 
