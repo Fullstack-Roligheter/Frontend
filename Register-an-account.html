@@ -29,17 +29,6 @@
             margin: 10px auto;
         }
         
-        #form {
-            position: relative;
-        }
-        
-        #form img {
-            position: absolute;
-            top: 165px;
-            right: 121px;
-            width: 22px;
-        }
-        
         .message {
             text-align: right;
             display: inline-block;
@@ -82,9 +71,6 @@
 <body>
     <div class="box">
         <form id="form" action="">
-            <label for="eye">
-                <img src="pic/close.jpg!bg" alt="" id="eye">
-            </label>
             <label for="userName">
                     <input type="text" name="" placeholder="Name" id="userName" required><br>
                 </label>
@@ -108,19 +94,7 @@
     <script>
         let eye = document.getElementById('eye');
         let pwd = document.getElementById('pwd');
-        let flag = 0;
-        eye.onclick = () => {
-            if (flag == 0) {
-                pwd.type = 'text';
-                eye.src = 'pic/open.jpg';
-                flag = 1;
-            } else {
-                pwd.type = 'password';
-                eye.src = 'pic/close.jpg!bg';
-                flag = 0;
-            }
 
-        }
         let ipt = document.querySelector('.ipt');
         let message = document.querySelector('.message');
         ipt.onblur = () => {
@@ -138,7 +112,7 @@
         form.addEventListener('submit', (e) => {
             e.preventDefault();
 
-            fetch('https://localhost:44324/api/User/register', {
+            fetch('https://localhost:7073/api/user/register', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -151,6 +125,7 @@
                     })
                 })
                 .then(response => {
+                    clearForms();
                     if (response.status === 401) {
                         const emailExist = document.querySelector('.emailExist');
                         emailExist.innerHTML = 'Email has already been registered!';
@@ -162,6 +137,12 @@
                     console.log(err);
                 })
         })
+
+        function clearForms() {
+            for (let i = 0; i < document.forms.length; i++) {
+                document.forms[i].reset();
+            }
+        }
     </script>
 
 </body>
