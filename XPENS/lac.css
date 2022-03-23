@@ -1,0 +1,112 @@
+body{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top:0;
+}
+
+
+
+#app {
+    display: flex;
+    max-width:61.25rem;
+    width: auto;
+    flex-direction: column;
+    padding-left:1rem;
+    padding-right:1rem;
+}
+
+#menu{
+    display:flex;
+    justify-self: center;
+    padding : 1rem;
+    font-weight: bold;
+}
+
+option{
+    font-weight: bold;
+}
+
+.nav{
+    display:flex;
+    margin-left:-1rem;
+    margin-top:0;
+    width:105%;
+    height: auto;
+    justify-content:space-around;
+    margin-bottom:0;
+    border: 0;
+    flex-flow: row wrap;
+}
+
+.nav > ul{
+    padding-inline-start: 0px;
+}
+
+.nav > ul > li{
+    display: flex;
+    justify-content:space-around;
+    flex: 1 0 6rem;
+}
+
+.budget-name{
+    
+    color: red;
+    margin-top:1rem;
+}
+
+.category-name{
+    color: blue;
+    margin-top:2rem;
+    margin-bottom:0.5rem;
+}
+
+.expense-container{
+    display:flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.expense-row, .expense-row-header{
+    display:flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.expense-row-header{
+    margin-bottom: 0.25rem;
+    border-bottom: 1px solid black;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 415px) {
+    #app, .nav{
+        padding-left:0.2rem;
+        padding-right:0.2rem;
+    }
+    body{
+        margin:0;
+    }
+}
+
+.expense-item{
+    display:flex;
+    width: 100%;
+    margin-left:0.1rem;
+    margin-right:0.1rem;
+}
+
+.expense-row:nth-child(n+3){
+    background-color: powderblue;
+}
+
+.expense-amount{
+    max-width:7rem;
+}
+
+.expense-date{
+
+}
+
+.expense-recipient{
+
+}
