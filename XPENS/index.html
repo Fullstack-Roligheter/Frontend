@@ -1,121 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Spa Test</title>
+    <link rel="stylesheet" href="savingPlan.css">
     <style>
-      .nav {
-        width: 900px;
-        height: 60px;
-        margin: 50px auto;
-        /* text-align: center; */
-        border: 3px solid #ccc;
-        background-color: #375d8f;
-      }
-
-      button {
-        height: 30px;
-        margin: 3px;
-        cursor: pointer;
-        display: center;
-      }
-
-      #app {
-        display: flex;
-        justify-content: center;
-      }
-
-      .nav li {
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        float: left;
-        height: 30px;
-        line-height: 30px;
-        padding: 0 20px;
-        text-align: justify;
-        cursor: pointer;
-        list-style: none;
-      }
-
-      li {
-        list-style-type: none;
-      }
-
-      .container {
-        display: grid;
-        grid-template-columns: 200px 200px 200px;
-        grid-template-rows: 50px 50px 1fr 1fr;
-
-        align-items: start;
-      }
-      .error {
-        grid-column: 1/-1;
-        grid-row: 1/2;
-        align-self: center;
-        justify-self: center;
-      }
-      .error p {
-        color: red;
-        font-size: 26px;
-      }
-      .option1 {
-        grid-column: 1/2;
-
-        justify-self: center;
-        align-self: center;
-      }
-      .option2 {
-        justify-self: center;
-        grid-column: 2/-1;
-        align-self: center;
-      }
-      .btn {
-        grid-row: 3/4;
-        grid-column: 1/-1;
-      }
-
-      tr:nth-child(even) {
-        background-color: #dddddd;
-      }
-      table {
-        margin-top: 40px;
-        font-family: sans-serif;
-        border-collapse: collapse;
-        grid-row: 3/-1;
-        grid-column: 1/-1;
-      }
-      td,
-      th {
-        border: 1px solid black;
-        padding: 8px;
-        font-weight: bold;
-      }
-      th {
-        text-transform: uppercase;
-      }
-      tr {
-        text-align: center;
-      }
-      tr:nth-child(even) {
-        background-color: aqua;
-      }
-      tr:hover {
-        background-color: black;
-        color: white;
-      }
+        .nav {
+            width: 980px;
+            height: 60px;
+            margin: 50px auto;
+            border: 3px solid #ccc;
+            background-color: #375d8f;
+        }
+        
+        button {
+            height: 30px;
+            margin: 3px;
+            cursor: pointer;
+            display: center;
+        }
+        
+        #app {
+            width: 980px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .nav li {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            float: left;
+            height: 30px;
+            line-height: 30px;
+            padding: 0 20px;
+            text-align: justify;
+            cursor: pointer;
+            list-style: none;
+        }
+        
+        li {
+            list-style-type: none;
+        }
+        
+        .container {
+            display: grid;
+            grid-template-columns: 200px 200px 200px;
+            grid-template-rows: 50px 50px 1fr 1fr;
+            align-items: start;
+        }
+        
+        .error {
+            grid-column: 1/-1;
+            grid-row: 1/2;
+            align-self: center;
+            justify-self: center;
+        }
+        
+        .error p {
+            color: red;
+            font-size: 26px;
+        }
+        
+        .option1 {
+            grid-column: 1/2;
+            justify-self: center;
+            align-self: center;
+        }
+        
+        .option2 {
+            justify-self: center;
+            grid-column: 2/-1;
+            align-self: center;
+        }
+        
+        .btn {
+            grid-row: 3/4;
+            grid-column: 1/-1;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+        
+        table {
+            margin-top: 40px;
+            font-family: sans-serif;
+            border-collapse: collapse;
+            grid-row: 3/-1;
+            grid-column: 1/-1;
+        }
+        
+        td,
+        th {
+            border: 1px solid black;
+            padding: 8px;
+            font-weight: bold;
+        }
+        
+        th {
+            text-transform: uppercase;
+        }
+        
+        tr {
+            text-align: center;
+        }
+        
+        tr:nth-child(even) {
+            background-color: lightblue;
+        }
+        
+        tr:hover {
+            background-color: black;
+            color: white;
+        }
     </style>
-  </head>
+</head>
 
-  <body>
+<body>
     <div class="nav">
         <ul>
             <li id="li1">Home Page</li>
-            <li id="li2">Check User</li>
-            <li id="li3">Add Expense</li>
-            <li id="li4">Check Budget</li>
-            <li id="li5">Filters</li>
-            <li id="li6">Check Budget Cat</li>
+            <li id="li2">Saving Plan</li>
+            <li id="li3">Check Plan</li>
+            <li id="li4">Add Expense</li>
+            <li id="li5">Check Budget</li>
+            <li id="li6">Filters</li>
+            <li id="li7">Check Budget Cat</li>
         </ul>
     </div>
     <div id="app"></div>
@@ -123,5 +136,6 @@
     <script src="main.js" type="module"></script>
     <script src="./Expense/Fetching.js"></script>
     <script src="./Filter/expenseFilter.js" defer></script>
-  </body>
+</body>
+
 </html>

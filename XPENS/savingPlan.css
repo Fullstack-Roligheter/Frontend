@@ -1,0 +1,22 @@
+.container.saving {
+    grid-template-rows: 1fr;
+    grid-template-columns: 10rem 10rem;
+    margin-left: 90px;
+}
+
+#myForm>label>input {
+    width: 200px;
+    height: 20px;
+    padding: 3px;
+    margin: 10px auto;
+    font-size: 15px;
+}
+
+#submit {
+    width: 80px;
+    height: 35px;
+    margin-left: 70px;
+    background-color: lightblue;
+    border-radius: 10px;
+    cursor: pointer;
+}
