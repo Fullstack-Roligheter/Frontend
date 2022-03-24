@@ -8,38 +8,48 @@
     <title>Document</title>
     <style>
         body {
-            background-color: bisque;
+            background: #fff url(pic/backgroundLogin.jpg) no-repeat fixed center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
         }
-        
+
         .box {
-            margin: 20px auto;
+            display: grid;
+            margin: 10% auto;
+            padding: 0;
             text-align: center;
-            width: 450px;
-            height: 430px;
+            border: solid 2px rgb(33, 33, 77);
+            width: 28.125rem;
+            width: 28.125rem;
             line-height: 40px;
-            border-radius: 50px;
-            background-color: burlywood;
-            box-shadow: 7px 7px 17px rgba(52, 56, 66, 0.5);
+            border-radius: 25px;
+            background-color: rgba(136, 136, 192, .8);
+            box-shadow: 7px 7px 17px rgba(52, 56, 66, .5);
         }
-        
+
         label input {
             width: 200px;
             height: 20px;
             padding: 3px;
             margin: 10px auto;
         }
-        
+
         #form {
             position: relative;
         }
-        
+
         #form img {
             position: absolute;
             top: 165px;
             right: 121px;
             width: 22px;
         }
-        
+
         .message {
             text-align: right;
             display: inline-block;
@@ -48,7 +58,7 @@
             background: url(pic/警告.jfif) no-repeat left center;
             padding-left: 20px;
         }
-        
+
         .emailExist {
             text-align: center;
             display: inline-block;
@@ -56,25 +66,58 @@
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             color: rgb(248, 34, 34);
         }
-        
+
         .wrong {
-            color: red;
+            color: rgb(148, 7, 7);
             background-image: url(pic/wrong.jpg);
         }
-        
+
         .right {
             color: green;
             background-image: url(pic/right.png);
         }
-        
+
         .btn {
-            width: 80px;
-            height: 35px;
-            font-size: 15px;
-            margin-right: 15px;
-            background-color: rgb(255, 235, 167);
-            border-radius: 10px;
+            align-items: center;
+            background-image: linear-gradient(144deg, rgb(33, 33, 77), #584cac 50%, rgb(136, 136, 192));
+            border: 0;
+            border-radius: 8px;
+            margin: 0 8px;
+            box-shadow: rgba(0, 0, 0, 0.712) 0 15px 30px -5px;
+            box-sizing: border-box;
+            color: #FFFFFF;
+            display: inline-flex;
+            font-family: Phantomsans, sans-serif;
+            font-size: 1rem;
+            padding: 3px;
+            text-decoration: none;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            white-space: nowrap;
             cursor: pointer;
+        }
+
+        #id1 {
+            width: 85.59px;
+        }
+
+        .btn span {
+            background-color: rgb(5, 6, 45);
+            padding: 10px 10px;
+            padding-top: 7px;
+            border-radius: 6px;
+            width: 100%;
+            height: 100%;
+            transition: 300ms;
+        }
+
+        .btn:hover span {
+            background: none;
+        }
+
+        a {
+            color: rgb(241, 239, 247);
         }
     </style>
 </head>
@@ -82,45 +125,31 @@
 <body>
     <div class="box">
         <form id="form" action="">
-            <label for="eye">
-                <img src="pic/close.jpg!bg" alt="" id="eye">
-            </label>
             <label for="userName">
-                    <input type="text" name="" placeholder="Name" id="userName" required><br>
-                </label>
+                <input type="text" name="" placeholder="Name" id="userName" required><br>
+            </label>
             <label for="age">
-                    <input type="text" name="" placeholder="Age" id="age" required><br>
-                </label>
+                <input type="text" name="" placeholder="Age" id="age" required><br>
+            </label>
             <label for="email">
-                    <input type="text" name="" placeholder="Email" id="email" required><br>
+                <input type="text" name="" placeholder="Email" id="email" required><br>
             </label>
             <label for="pwd">
                 <input type="password" class="ipt" name="" placeholder="Password" id="pwd" required><br>
             </label>
             <p class="emailExist"></p> <br>
             <p class="message">At least 8 characters(a combination of letters, numbers, and symbols)</p> <br>
-            <input type="submit" class="btn" value="Register">
-            <input type="reset" class="btn" value="Reset">
+            <button type="submit" class="btn" id="id2" hover><span class="text">Register</span></button>
+            <button type="submit" class="btn" id="id1" hover><span class="text">Reset</span></button>
         </form>
         <p>Already have an account? <a href="http://127.0.0.1:5500/login.html">Sign in</a></p>
     </div>
 
     <script>
+
         let eye = document.getElementById('eye');
         let pwd = document.getElementById('pwd');
-        let flag = 0;
-        eye.onclick = () => {
-            if (flag == 0) {
-                pwd.type = 'text';
-                eye.src = 'pic/open.jpg';
-                flag = 1;
-            } else {
-                pwd.type = 'password';
-                eye.src = 'pic/close.jpg!bg';
-                flag = 0;
-            }
 
-        }
         let ipt = document.querySelector('.ipt');
         let message = document.querySelector('.message');
         ipt.onblur = () => {
@@ -138,7 +167,7 @@
         form.addEventListener('submit', (e) => {
             e.preventDefault();
 
-            fetch('https://localhost:44324/api/User/register', {
+            fetch('https://localhost:7073/api/user/register', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -148,9 +177,10 @@
                         age: form[1].value,
                         email: form[2].value,
                         password: form[3].value
-                    })
-                })
+                    })          
+            })
                 .then(response => {
+                    clearForms();
                     if (response.status === 401) {
                         const emailExist = document.querySelector('.emailExist');
                         emailExist.innerHTML = 'Email has already been registered!';
@@ -162,6 +192,12 @@
                     console.log(err);
                 })
         })
+
+        function clearForms() {
+            for (let i = 0; i < document.forms.length; i++) {
+                document.forms[i].reset();
+            }
+        }
     </script>
 
 </body>
