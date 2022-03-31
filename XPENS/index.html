@@ -30,20 +30,7 @@
         display: flex;
         justify-content: center;
       }
-      .nav li {
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        float: left;
-        height: 30px;
-        line-height: 30px;
-        padding: 0 20px;
-        text-align: justify;
-        cursor: pointer;
-        list-style: none;
-      }
 
-      li {
-        list-style-type: none;
-      }
 
       .container {
         display: grid;
@@ -156,21 +143,48 @@
       }
 
       /*End Expense  & Check plan*/
+
+      li {
+        list-style: none;
+      }
+      .nav .hellobud {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+      }
+      
+      .dropdown {
+        display: flex;
+        display: inline-block;
+        flex-direction: row;
+      }
     </style>
   </head>
 
   <body>
     <div class="nav">
-      <ul>
-        <li id="li1">Home Page</li>
-        <li id="li2">Saving Plan</li>
-        <li id="li3">Check Plan</li>
-        <li id="li8">Add Income</li>
-        <li id="li4">Add Expense</li>
-        <li id="li5">Check Budget</li>
-        <li id="li6">Filters</li>
-        <li id="li7">Check Budget Cat</li>
-        <li id="li9">Add Cat</li>
+      <ul class="navitems">
+        <li>
+          <ul class="dropdown">
+            <li id="li1">Home Page</li>
+            <li id="li2">Saving Plan</li>
+            <li id="li3">Check Plan</li>
+          </ul>
+        </li>
+        <li>
+          <ul class="dropdown">
+            <li id="li8">Add Income</li>
+            <li id="li4">Add Expense</li>
+            <li id="li5">Check Budget</li>
+          </ul>
+        </li>
+        <li>
+          <ul class="dropdown">
+            <li id="li6">Filters</li>
+            <li id="li7">Check Budget Cat</li>
+            <li id="li9">Add Cat</li>
+          </ul>
+        </li>
       </ul>
     </div>
     <div id="app"></div>
