@@ -113,6 +113,10 @@ export const render = () => {
                     'Date : ' + data[i].expenses[j].date + '<br/>' +
                     'Comment : ' + data[i].expenses[j].comment + '<br/><br/>';
                 newExpensesContainerEl.appendChild(div2);
+
+                const mainContainer = document.getElementsById('content');
+                div1.appendChild(mainContainer);
+                div2.appendChild(mainContainer);
             }
         }
     }
