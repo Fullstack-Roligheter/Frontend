@@ -17,8 +17,8 @@
       width: 100%;
       height: 160px;
       text-align: center;
-      /* border: 3px solid #ccc; */
-      background-color: #dbe5f3;
+      border-bottom: rgb(175, 175, 175) solid 2px;
+      background: linear-gradient(0deg, rgba(235, 238, 241, 0.37), rgb(210, 213, 218))
     }
 
     button {
@@ -153,9 +153,12 @@
       list-style: none;
     }
 
-    .dropdown {
+    .dropdown, #placeholder {
       position: relative;
       display: inline-block;
+      /* width: 120px; */
+      font-family:'Courier New', Courier, monospace;
+      
     }
 
     .dropdown-content {
@@ -184,6 +187,72 @@
       display: flex;
       align-items: center;
     }
+    ul {
+      padding-inline-start: 0;
+    }
+
+    .dropdown-content {
+      border-radius: 10px;
+      text-align: left;
+      margin-left: -20px;
+      border: rgb(175, 175, 175) solid 2px;
+    }
+
+    li:hover {
+      cursor: pointer;
+    }
+
+    .dropdown-content > li {
+      padding-bottom: 20px;
+      padding-top: 20px;
+      border-bottom: rgb(175, 175, 175) solid 1px;
+    }
+
+    .dropdown-content > li:last-child {
+      margin-bottom: 0;
+      border: none;
+    }
+
+    .dropdown-content > li:first-child {
+      margin-top: 0;
+    }
+
+    #li1 {
+      position: relative;
+      top: -40px;
+    }
+
+    footer {
+      color: black;
+      border-top: rgb(175, 175, 175) solid 2px;
+      padding-top: 30px;
+      text-align: center;
+      color: rgb(151, 151, 151)
+    }
+    .social {
+      display: flex;
+      justify-content: center;
+      font-size: 2.2rem;
+      gap: 20px;
+    }
+
+    .social > a {
+      color: rgb(151, 151, 151);
+    }
+
+    .footer-list {
+      font-size: 1.2rem;
+      display: flex;
+      gap: 25px;
+      justify-content: center;
+    }
+
+    .footer-item > a {
+      color: rgb(151, 151, 151);
+      text-decoration: none;
+    }
+
+
   </style>
 </head>
 
@@ -192,45 +261,63 @@
     <div class="nav">
       <ul class="nav-items">
         <li class="dropdown">
-          <span>First dropdown</span>
+          <span>Plans</span>
           <ul class="dropdown-content">
-            <!-- <li id="li1">Home Page</li> -->
-            <li class="li2">Saving Plan</li>
-            <li class="li3">Check Plan</li>
+            <li id="li2">Saving Plan</li>
+            <li id="li3">Check Plan</li>
           </ul>
         </li>
         <li class="dropdown">
-          <span>Second dropdown</span>
+          <span>Transactions</span>
           <ul class="dropdown-content"">
             <li id="li8">Add Income</li>
             <li id="li4">Add Expense</li>
           </ul>
         </li>
         <li id="li1">
-          <span>Placeholder logo</span>
+          <img src="../pic/sponge.png" alt="sponge" width="150px">
         </li>
         <li class="dropdown">
-          <span>Third dropdown</span>
+          <span>Budgets</span>
           <ul class="dropdown-content"">
-            <li id="li6">Filters</li>
+            <li id="li5">Check Budget</li>
             <li id="li7">Check Budget Cat</li>
           </ul>
         </li>
         <li class="dropdown">
-          <span>Fourth dropdown</span>
+          <span>Others</span>
           <ul class="dropdown-content"">
-            <li id="li5">Check Budget</li>
             <li id="li9">Add Cat</li>
+            <li id="li6">Filters</li>
           </ul>
         </li>
       </ul>
     </div>
   </header>
-  <div id="app"></div>
+  <main>
+    <div id="app"></div>
+  </main>
+  <footer>
+    <div class="social">
+      <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://www.snapchat.com/sv-SE"><i class="fa-brands fa-snapchat"></i></a>
+      <a href="https://twitter.com/"><i class="fa-brands fa-twitter"></i></a>
+      <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+    </div>
+    <ul class="footer-list">
+      <li class="footer-item"><a href="#">Home</a></li>
+      <li class="footer-item"><a href="#">Services</a></li>
+      <li class="footer-item"><a href="#">About</a></li>
+      <li class="footer-item"><a href="#">Terms</a></li>        
+      <li class="footer-item"><a href="#">Privacy Policy</a></li>
+    </ul>
+    <p class="copyright">Expense AB © 2021</p>
+</footer>
 
   <script src="main.js" type="module"></script>
   <script src="./Expense/Fetching.js"></script>
   <script src="./Filter/expenseFilter.js" defer></script>
+  <script src="https://kit.fontawesome.com/07dacfdd4f.js" crossorigin="anonymous"></script>
 
   <script>
     const Ulist = document.querySelector('ul')

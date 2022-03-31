@@ -1,7 +1,7 @@
 import { changePage } from './router.js'
 
-const registerMenuLi = (names) => {
-  const li = document.getElementsByClassName(names)
+const registerMenuLi = (id, page) => {
+  const li = document.getElementById(id)
   li.addEventListener('click', () => {
     changePage(page)
     changeColor()
