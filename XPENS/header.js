@@ -1,23 +1,23 @@
 import { changePage } from './router.js'
 
-const registerMenuLi = (id, page) => {
-  const li = document.getElementById(id)
+const registerMenuLi = (names) => {
+  const li = document.getElementsByClassName(names)
   li.addEventListener('click', () => {
     changePage(page)
     changeColor()
   })
 }
-const changeColor = () => {
-  const lis = document.getElementsByTagName('li')
-  for (let i = 0; i < lis.length; i++) {
-    lis[i].onclick = function () {
-      for (let i = 0; i < lis.length; i++) {
-        lis[i].style.backgroundColor = ''
-      }
-      this.style.backgroundColor = 'darkcyan'
-    }
-  }
-}
+// const changeColor = () => {
+//   const lis = document.getElementsByTagName('li')
+//   for (let i = 0; i < lis.length; i++) {
+//     lis[i].onclick = function () {
+//       for (let i = 0; i < lis.length; i++) {
+//         lis[i].style.backgroundColor = ''
+//       }
+//       this.style.backgroundColor = 'darkcyan'
+//     }
+//   }
+// }
 
 export class Header {
     constructor() {
