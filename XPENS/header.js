@@ -24,11 +24,12 @@ export class Header {
         registerMenuLi("li1", "home");
         registerMenuLi("li2", "savingPlan");
         registerMenuLi("li3", "checkPlan");
-       registerMenuLi('li8', 'addincome')
+        registerMenuLi('li8', 'addincome')
         registerMenuLi("li4", "addexpense");
         registerMenuLi("li5", "ListAllExpensesInBudget");
         registerMenuLi("li6", "filters");
         registerMenuLi("li7", "ListAllExpensesInBudgetCat");
+        registerMenuLi("li9", "CreateNewCategory");
     }
 }
 

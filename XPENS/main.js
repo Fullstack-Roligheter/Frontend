@@ -6,6 +6,7 @@ import { render as addexpense } from './addexpense.js'
 import { render as ListAllExpensesInBudgetRender } from './ListAllExpensesInBudget.js'
 import { render as page5Render } from './filters.js'
 import { render as ListAllExpensesInBudgetCatRender } from './ListAllExpensesInBudgetCat.js'
+import { render as CreateNewCategory } from "./CreateNewCategory.js";
 import { registerChangeListener } from './router.js'
 import { Header } from './header.js'
 
@@ -41,6 +42,9 @@ registerChangeListener((newPage) => {
     case 'addincome':
       addincome(app)
       break
+      case "CreateNewCategory":
+        CreateNewCategory(app);
+        break;
   }
 })
 
