@@ -1,11 +1,14 @@
 import { changePage } from './router.js'
 
-const registerMenuLi = (id, page) => {
-  const li = document.getElementById(id)
-  li.addEventListener('click', () => {
-    changePage(page)
-    changeColor()
-  })
+const registerMenuLi = (className, page) => {
+  const li = document.getElementsByClassName(className);
+
+  for (const item of li) {
+    item.addEventListener('click', () => {
+      changePage(page)
+    })
+  }
+  // changeColor()
 }
 // const changeColor = () => {
 //   const lis = document.getElementsByTagName('li')
@@ -21,15 +24,15 @@ const registerMenuLi = (id, page) => {
 
 export class Header {
     constructor() {
-        registerMenuLi("li1", "home");
-        registerMenuLi("li2", "savingPlan");
-        registerMenuLi("li3", "checkPlan");
-        registerMenuLi('li8', 'addincome')
-        registerMenuLi("li4", "addexpense");
-        registerMenuLi("li5", "ListAllExpensesInBudget");
-        registerMenuLi("li6", "filters");
-        registerMenuLi("li7", "ListAllExpensesInBudgetCat");
-        registerMenuLi("li9", "CreateNewCategory");
+        registerMenuLi("homeLinkPage", "home");
+        registerMenuLi("savingPlanLink", "savingPlan");
+        registerMenuLi("checkPlanLink", "checkPlan");
+        registerMenuLi('addIncomeLink', 'addincome')
+        registerMenuLi("addExpenseLink", "addexpense");
+        registerMenuLi("checkBudgetLink", "ListAllExpensesInBudget");
+        registerMenuLi("filterLink", "filters");
+        registerMenuLi("checkBudgetCatLink", "ListAllExpensesInBudgetCat");
+        registerMenuLi("addCatLink", "CreateNewCategory");
     }
 }
 
