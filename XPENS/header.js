@@ -24,7 +24,7 @@ const registerMenuLi = (className, page) => {
 
 export class Header {
     constructor() {
-        registerMenuLi("homeLinkPage", "home");
+        registerMenuLi("homeLink", "home");
         registerMenuLi("savingPlanLink", "savingPlan");
         registerMenuLi("checkPlanLink", "checkPlan");
         registerMenuLi('addIncomeLink', 'addincome')
