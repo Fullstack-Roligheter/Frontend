@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>Xpens</title>
     <link rel="stylesheet" href="savingPlan.css" />
     <style>
@@ -28,6 +27,7 @@
         width: 1100px;
         margin: 0 auto;
         display: flex;
+
         justify-content: center;
       }
       .nav li {
@@ -53,7 +53,7 @@
       }
 
       /*Add income*/
-      #myForm1 {
+      #incomeForm {
         color: rgb(54, 54, 54);
         font-size: 1.2rem;
         font-weight: 700;
@@ -90,6 +90,12 @@
       /*End Add income*/
 
       /*Add Expense & Check plan*/
+      .filterContainer {
+        display: grid;
+        grid-template-columns: repeat(2, 16rem);
+        grid-template-rows: repeat(2, 3rem);
+        justify-content: space-between;
+      }
       .error {
         grid-column: 1/-1;
         grid-row: 1/2;
@@ -104,19 +110,18 @@
 
       .option1 {
         grid-column: 1/2;
-        justify-self: center;
-        align-self: center;
+        grid-row: 1/-1;
       }
 
       .option2 {
-        justify-self: center;
         grid-column: 2/-1;
-        align-self: center;
+        grid-row: 1/-1;
+        width: 100%;
       }
 
-      .btn {
-        grid-row: 3/4;
+      .btnFilter {
         grid-column: 1/-1;
+        grid-row: 2/-1;
       }
 
       tr:nth-child(even) {
@@ -176,8 +181,6 @@
     <div id="app"></div>
 
     <script src="main.js" type="module"></script>
-    <script src="./Expense/Fetching.js"></script>
-    <script src="./Filter/expenseFilter.js" defer></script>
 
     <script>
       const Ulist = document.querySelector('ul')
