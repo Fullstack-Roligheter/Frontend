@@ -4,20 +4,8 @@ const registerNavBtn = (id, page) => {
   const navBtn = document.getElementById(id)
   navBtn.addEventListener('click', () => {
     changePage(page)
-    // changeColor()
   })
 }
-
-// const changeColor = () => { // Behövs denna om css style för buttons ändrar färg?
-//   const navBtns = document.getElementsByClassName('menu-item')
-//   for (let i = 0; i < navBtns.length; i++) {
-//     navBtns[i].onclick = function () {
-//       for (let i = 0; i < navBtns.length; i++) {
-//         navBtns[i].style.backgroundColor = ''
-//       }
-//     }
-//   }
-// }
 
 export class Header {
   constructor() {
