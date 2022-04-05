@@ -137,14 +137,44 @@ aside>.menu-item {
 #app {
     position: relative;
     display: flex;
-    height: 500px;
-    width: 600px;
+    height: 560px;
+    width: 700px;
     margin-top: 5px;
 }
 
-#menu {
-    color:
+/* ------- LIST ALL EXPENSES/BUDGET --------- */
+#menu  {
+    display: flex;
+    align-self:baseline;
+    background-color: #0a5772;
+    max-width: 170px;
+    justify-content: center;
+
+    border-radius: 8px;
+    border-style: none;
+    color: #fff;
+    cursor: pointer;
+    font-family: "RM Neue", sans-serif;
+    font-size: 100%;
+    padding: 10px 21px;
 }
+
+#Budget-Title, .Budget-Item {
+    font-family: "RM Neue", sans-serif;
+    color: rgb(0, 0, 0);
+}
+
+#Budget-Title {
+    padding: 5px;
+    margin: 5px;
+    font-weight: bold;
+}
+
+.Budget-Item {
+    padding: 5px;
+    margin: 5px;
+}
+
 
 
 main {

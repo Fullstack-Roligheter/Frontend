@@ -5,15 +5,16 @@ export const render = () => {
     let budgetId = '';
     let tempList = [];
     let budgetName = '';
-    
-    const aside = document.createElement('aside')
-    const sidebarDiv = document.createElement('div')
-    sidebarDiv.setAttribute("id", "sidebar-btn-1")
-    sidebarDiv.setAttribute("class", "menu-item aside")
-    sidebarDiv.innerHTML = 'Button Test'
-    aside.appendChild(sidebarDiv);
-    app.appendChild(aside);
-
+   
+    // ---- Sidebar Button -----
+    // const aside = document.createElement('aside')
+    // const sidebarDiv = document.createElement('div')
+    // sidebarDiv.setAttribute("id", "sidebar-btn-1")
+    // sidebarDiv.setAttribute("class", "menu-item aside")
+    // sidebarDiv.innerHTML = 'Budget Categories'
+    // aside.appendChild(sidebarDiv);
+    // app.appendChild(aside);
+    // -----------------------------------------------
     const body = document.getElementById('app')
     
     const GetBudgets = (loggedInUserId) => {
