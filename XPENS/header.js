@@ -1,3 +1,5 @@
+import { changePage } from './router.js'
+
 const registerMenuLi = (className, page) => {
   const li = document.getElementsByClassName(className);
 
