@@ -1,53 +1,51 @@
-#myForm{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    margin: 20px 0;
+#myForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin: 20px 0;
 }
 
-#myForm input{
-    border: none;
-   color: rgb(99, 98, 98);
-   border-bottom: #687793 solid 2px;
-    height: 50px;
-    width: 250px;
-    outline: none;
-    padding-left: 10px;
-   
+#myForm input {
+  border: none;
+  color: rgb(99, 98, 98);
+  border-bottom: #687793 solid 2px;
+  height: 50px;
+  width: 250px;
+  outline: none;
+  padding-left: 10px;
 }
-#myForm select{
-    height: 30px;
-    outline: none;
-    border: 2px solid #687793;
-    color: rgb(99, 98, 98);
-    font-size: 16px;
-    width: 100%;
+#myForm select {
+  height: 30px;
+  outline: none;
+  border: 2px solid #687793;
+  color: rgb(99, 98, 98);
+  font-size: 16px;
+  width: 100%;
 }
-input::placeholder{
-    color: rgb(99, 98, 98);
-   
+input::placeholder {
+  color: rgb(99, 98, 98);
 }
 
-
-#myForm input:hover{
-    
-    background-color: #ecf0f1;
+#myForm input:hover {
+  background-color: #ecf0f1;
 }
 
-#myForm input:focus{
-    
-    background-color: #ecf0f1;
+#myForm input:focus {
+  background-color: #ecf0f1;
 }
 
-.form-button{
-    background-color: #687793;
-    color: #fff;
-    font-size: 16px;
-    border: none;
- padding: 0;
- width:100%;
- height: 35px;
-
- 
+.form-button {
+  background-color: #687793;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  padding: 0;
+  width: 100%;
+  height: 35px;
+}
+.form-button:hover {
+  background-color: #ffffff;
+  border: 2px solid #687793;
+  color: #687793;
 }
