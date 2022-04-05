@@ -1,12 +1,12 @@
 import { render as page1Render } from './home.js'
 import { render as savingPlanRender } from './savingPlan.js'
 import { render as checkPlanRender } from './checkPlan.js'
-import { render as addincome } from './addincome.js'
-import { render as addexpense } from './addexpense.js'
+import { render as addincome } from './Income/addincome.js'
+import { render as addexpense } from './Expense/addexpense.js'
 import { render as ListAllExpensesInBudgetRender } from './ListAllExpensesInBudget.js'
-import { render as page5Render } from './filters.js'
+import { render as filter } from './Filter/filters.js'
 import { render as ListAllExpensesInBudgetCatRender } from './ListAllExpensesInBudgetCat.js'
-import { render as CreateNewCategory } from "./CreateNewCategory.js";
+import { render as CreateNewCategory } from './CreateNewCategory.js'
 import { registerChangeListener } from './router.js'
 import { Header } from './header.js'
 
@@ -34,7 +34,7 @@ registerChangeListener((newPage) => {
       ListAllExpensesInBudgetRender(app)
       break
     case 'filters':
-      page5Render(app)
+      filter(app)
       break
     case 'ListAllExpensesInBudgetCat':
       ListAllExpensesInBudgetCatRender(app)
@@ -42,9 +42,9 @@ registerChangeListener((newPage) => {
     case 'addincome':
       addincome(app)
       break
-      case "CreateNewCategory":
-        CreateNewCategory(app);
-        break;
+    case 'CreateNewCategory':
+      CreateNewCategory(app)
+      break
   }
 })
 
