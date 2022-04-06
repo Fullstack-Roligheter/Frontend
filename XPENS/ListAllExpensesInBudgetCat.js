@@ -17,8 +17,8 @@ export const render = () => {
   const body = document.getElementById('app')
 
   let pageTitle = document.createElement('h2')
+  pageTitle.setAttribute('id', 'expense-header')
   pageTitle.innerHTML = 'Expenses (Sorted by Category)'
-  body.appendChild(pageTitle)
 
   const GetBudgets = (loggedInUserId) => {
     fetch('https://localhost:7073/ListAllBudgetForSpecificUser', {
@@ -40,7 +40,6 @@ export const render = () => {
   const ListAllBudgetInDropdown = (data) => {
     let menu = document.createElement('select')
     menu.setAttribute('id', 'menu')
-
     for (let i = 0; i < data.length; i++) {
       let option = document.createElement('option')
       option.setAttribute('id', 'option')
@@ -103,16 +102,18 @@ export const render = () => {
     const date = new Date()
     // newExpensesContainerEl.innerHTML = date.getMilliseconds();
 
-    body.appendChild(newExpensesContainerEl)
+    app.appendChild(newExpensesContainerEl)
 
     for (let i = 0; i < data.length; i++) {
+    app.appendChild(pageTitle) // Tillfälligt bara för att den inte ska hamna på vänster sida o facka upp css:en
+      
       // let budgetNameDiv = document.createElement("div");
       // budgetNameDiv.setAttribute("class", "budget-name");
       // //budgetNameDiv.innerHTML = date.getMilliseconds();
       // budgetNameDiv.innerHTML = "Budget Name : " + data[i].budgetName;
-
+      
       // newExpensesContainerEl.appendChild(budgetNameDiv);
-
+      
       for (let k = 0; k < data[i].categories.length; k++) {
         let categoryContainer = document.createElement('div')
         categoryContainer.setAttribute('class', 'category-container')
@@ -122,14 +123,14 @@ export const render = () => {
         categoryNameDiv.setAttribute('class', 'category-name')
         categoryNameDiv.innerHTML =
           'Category Name : ' + data[i].categories[k].categoryName
-        categoryContainer.appendChild(categoryNameDiv)
-
-        let expensesContainerDiv = document.createElement('div')
-        expensesContainerDiv.setAttribute('class', 'expense-container')
-        categoryContainer.appendChild(expensesContainerDiv)
-
-        let expenseRowHeaderDiv = document.createElement('div')
-        expenseRowHeaderDiv.setAttribute('class', 'expense-row-header')
+          categoryContainer.appendChild(categoryNameDiv)
+          
+          let expensesContainerDiv = document.createElement('div')
+          expensesContainerDiv.setAttribute('class', 'expense-container')
+          categoryContainer.appendChild(expensesContainerDiv)
+          
+          let expenseRowHeaderDiv = document.createElement('div')
+          expenseRowHeaderDiv.setAttribute('class', 'expense-row-header')
         expensesContainerDiv.appendChild(expenseRowHeaderDiv)
 
         let expensesDate = document.createElement('div')
@@ -159,6 +160,7 @@ export const render = () => {
           let expenseRowDiv = document.createElement('div')
           expenseRowDiv.setAttribute('class', 'expense-row')
           expensesContainerDiv.appendChild(expenseRowDiv)
+          
 
           let expensesDate = document.createElement('div')
           expensesDate.setAttribute('class', 'expense-item expense-date')
