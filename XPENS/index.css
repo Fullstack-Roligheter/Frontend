@@ -70,7 +70,7 @@ aside>.menu-item {
     width: 150px;
 }
 
- /* What is dis? */
+ /* --- MAX-MIN WIDTH SETTINGS ----*/
 
 @media screen and (max-width:416px) {
 
@@ -97,17 +97,6 @@ aside>.menu-item {
     }
 }
 
-/* End of what is dis */
-
-/* ------- MAIN CONTAINER --------- */
-
-#app {
-    position: relative;
-    display: flex;
-    height: 560px;
-    width: 700px;
-    margin-top: 5px;
-}
 
 /* ------- LIST ALL EXPENSES/BUDGET --------- */
 #menu  {
@@ -142,14 +131,37 @@ aside>.menu-item {
     margin: 5px;
 }
 
+/* ------- LIST ALL EXPENSES/BUDGET IN CATEGORY ---------- */
 
+#expenses-container {
+    padding: 5px;
+    margin: 5px;
+}
+
+
+/* ------- ADD CATEGORY -----------  */
+
+#form-container {
+    padding: 5px;
+    margin: 5px;
+}
+
+/* ------- MAIN CONTAINER --------- */
+
+#app {
+    position: relative;
+    display: flex;
+    height: 560px;
+    width: 700px;
+    margin-top: 5px;
+}
 
 main {
     display: flex;
     flex-direction: row;
     min-height: calc(100% - 270px);
     justify-content: space-around;
-    background-color: #9acfe3;
+    background-color: #9acfe369;
 }
 
 .main-container {
