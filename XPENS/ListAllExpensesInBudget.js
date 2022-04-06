@@ -1,12 +1,22 @@
 'use strict';
+
 export const render = () => {
     let userId = 1;
     let budgetId = '';
     let tempList = [];
     let budgetName = '';
-
+   
+    // ---- Sidebar Button -----
+    // const aside = document.createElement('aside')
+    // const sidebarDiv = document.createElement('div')
+    // sidebarDiv.setAttribute("id", "sidebar-btn-1")
+    // sidebarDiv.setAttribute("class", "menu-item aside")
+    // sidebarDiv.innerHTML = 'Budget Categories'
+    // aside.appendChild(sidebarDiv);
+    // app.appendChild(aside);
+    // -----------------------------------------------
     const body = document.getElementById('app')
-
+    
     const GetBudgets = (loggedInUserId) => {
         fetch
             ('https://localhost:7073/ListAllBudgetForSpecificUser',
